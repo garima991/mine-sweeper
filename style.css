@@ -115,13 +115,28 @@ select{
     border: 2px solid #4A752C;
 }
 
-.tiles{
+/* .tiles{
     width: 2.6rem;
     height: 2.6rem;
     display: inline-block;
     font-size: 20px;
     text-align: center;
     cursor: pointer;
+    background-color: #A2D148;
+} */
+
+.tiles {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    text-align: center;
+    vertical-align: top;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #ccc;
+    font-size: 20px;
+    line-height: 40px; 
+    box-sizing: border-box;
     background-color: #A2D148;
 }
 
@@ -132,7 +147,7 @@ select{
 
 .tiles.revealed {
     background-color: #D7B899 !important;
-    font-size: 16px;
+    /* font-size: 16px; */
 }
 
 .minesweeper-row:nth-child(odd) .tiles:nth-child(odd).revealed, 
@@ -140,10 +155,9 @@ select{
     background-color: #E5C29F !important;
 }
 
-
-.tiles.mine{
-    background-size: contain;
-    background-color: transparent;
+.mine{
+    content: url("./assets/bomb.png");
+    background: transparent;
 }
 
 .flagged{
