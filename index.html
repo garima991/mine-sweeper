@@ -21,37 +21,22 @@
                         <option value="medium">Medium</option>
                         <option value="hard">Hard</option>
                     </select>
-                    <div class="flag-count">3 <img src="./assets/flag.png" alt="" style = "height: 38px"></div>
+                    <div class="flag-count"><span id ="count"></span> <img src="./assets/flag.png" alt="" style = "height: 38px"></div>
                     <button id = "exit" type = "reset"><img src="./assets/exit.svg" alt="" style="height:38px; width: 38px;"></button>
                 </div>
                
                 <div id="board">
-                    <!-- <div class="minesweeper-row">
-                        <div class="tiles"></div>
-                        <div class="tiles"></div>
-                        <div class="tiles"></div>
-                        <div class="tiles"></div>
-                        <div class="tiles"></div>
-                        <div class="tiles"></div>
-                        <div class="tiles"></div>
-                        <div class="tiles"></div>
-                    </div>
-                -->
+                    
                 </div>
-                <!-- <div class = "menu">
-                <button id="menu" class = "hide">
-                   
-                    <select name="cheat" id="cheat">
-                        <option value="yes">Cheat Mode : On</option>
-                        <option value="no">Cheat Mode : Off</option>
-                    </select>
-                    <select name="sound" id="sound">
-                        <option value="on">On</option>
-                        <option value="off">Off</option>
-                    </select>
-                </button> 
-                </div> -->
-               
+
+                <div class="game-over hide">
+                    <h1> --- Game Over ! --- </h1>
+                </div>
+
+                <div class = "win hide">
+                    <h1> --- You won ! --- </h1>
+                </div>
+
             </div>
     </main>
     
