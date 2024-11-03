@@ -20,15 +20,15 @@ main{
 }
 
 h1{
-    font-size: 40px;
+    font-size: 38px;
 }
 
 .overlay {
     position: absolute;
-    top: 10%;
-    left: 10%;
-    width: 80%;
-    height: 80%;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
     /* background-color: rgba(246, 246, 246, 0.5);  */
     -webkit-backdrop-filter: blur(5px) brightness(80%) ;
     backdrop-filter: blur(5px) brightness(80%) ;
@@ -176,10 +176,10 @@ select{
 
 .win, .game-over {
     position: absolute;
-    top: 10%;
-    left: 10%;
-    width: 80%;
-    height: 80%;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
     -webkit-backdrop-filter: blur(10px) brightness(55%) ;
     backdrop-filter: blur(10px) brightness(55%) ;
     display: flex;
