@@ -25,11 +25,13 @@ h1{
 
 .overlay {
     position: absolute;
-    top: 1%;
-    left: 1%;
-    width: 98%;
-    height: 98%;
-    background-color: rgba(246, 246, 246, 0.5); 
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    /* background-color: rgba(246, 246, 246, 0.5);  */
+    -webkit-backdrop-filter: blur(5px) brightness(80%) ;
+    backdrop-filter: blur(5px) brightness(80%) ;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -79,11 +81,11 @@ h1{
 }
 
 select{
-    background-color: white#2d2e2f;
+    background-color: white;
     border-radius: 10px;
     padding: 10px;
     color: black;
-    font-size: 16px;
+    font-size: 18px;
     cursor: pointer;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
@@ -107,12 +109,16 @@ select{
     background-color: transparent;
     outline: none;
     border: none;
-    border-radius: 50%;
-    box-shadow: 1px 1px 2px white;
+    border-radius: 30px;
+    border: 2px solid rgb(116, 145, 116);
+}
+
+#exit:hover{
+    scale: 1.06;
 }
 
 #board{
-    border: 2px solid #4A752C;
+    border: 3px solid #4A752C;
 }
 
 /* .tiles{
@@ -126,8 +132,8 @@ select{
 } */
 
 .tiles {
-    width: 40px;
-    height: 40px;
+    width: 2rem;
+    height: 2rem;
     display: inline-block;
     text-align: center;
     vertical-align: top;
@@ -165,9 +171,52 @@ select{
 }
 
 .hide{
-    display: none;
+    display: none !important;
 }
 
-.game-over{
-    content: url("assets/sad.svg");
+.win, .game-over {
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    width: 80%;
+    height: 80%;
+    -webkit-backdrop-filter: blur(10px) brightness(55%) ;
+    backdrop-filter: blur(10px) brightness(55%) ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    color: white;
+    font-weight: 900;
+    letter-spacing: 3px;
+    border-radius: 20px;
+    font-size: 40px;
+    color: black;
+    font-family:cursive;
+}
+
+#play-again-button, #game-over-button{
+    margin: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: outset 5px rgb(95, 89, 89);
+    /* box-shadow: 2px 3px 3px rgb(123, 129, 123); */
+    font-size: 20px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.game-over-content {
+    text-align: center;
+    border: 3px solid rgb(18, 24, 18);
+    border-radius: 20px;
+    padding: 50px 10px ;
+    background-color: rgb(205, 98, 31);
+}
+
+.win-content{
+    text-align: center;
+    border: 2px solid rgb(162, 170, 162);
+    border-radius: 20px;
+    padding: 50px 10px ;
+    background-color: rgb(141, 205, 31)
 }
