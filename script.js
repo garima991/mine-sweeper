@@ -1,8 +1,7 @@
 const levelMap = {
     easy: { boardSize: 8,  mineCount: 15   },
-    medium: { boardSize: 10,  mineCount:  33  },
-    hard: { boardSize: 14,  mineCount: 55  },
-    evil: { boardSize: 15,   mineCount: 111  }
+    medium: { boardSize: 9,  mineCount:  33  },
+    hard: { boardSize: 10,  mineCount: 55  },
 }
 
 document.getElementById("level").addEventListener("change", startGame);
@@ -92,7 +91,8 @@ function startGame(){
             tile.classList.add("mine");
             tile.classList.add("revealed");
             revealAllMines();
-            alert("Game Over");
+            showResultScreen(false);
+            // alert("Game Over");
             return;
         } 
 
@@ -106,45 +106,6 @@ function startGame(){
 
         checkWin();
     }
-
-    // function calculateAdjacentMineCount(row, col){
-    //     if (row < 0 ||
-    //         row >= boardSize || 
-    //         col < 0 ||
-    //         col >= boardSize ||
-    //         board[row][col].classList.contains("revealed")) return;
-        
-    //     let count = 0;
-
-    //     for (let x = -1; x <= 1; x++) {
-    //         for (let y = -1; y <= 1; y++) {
-    //             const newRow = row + x;
-    //             const newCol = col + y;
-    //             if (newRow < 0 || newRow >= boardSize || newCol < 0 || newCol >= boardSize) {
-    //                 continue;
-    //             }
-
-    //             if (mines.includes(newRow + "-" + newCol)) {
-    //                 count++;
-    //             }
-    //         }
-    //     } 
-
-    //     board[row][col].classList.add("revealed");
-    //     revealedTiles++;
-
-    //     if(count > 0){
-    //         board[row][col].innerHTML = count;
-    //         console.log("NUMBER ADDED");
-    //     } 
-    //     else{
-    //         for (let x = -1; x <= 1; x++) {
-    //             for (let y = -1; y <= 1; y++) {
-    //                 calculateAdjacentMineCount(row + x, col + y);
-    //             }
-    //         }
-    //     }
-    // }
 
     function countAdjacentMines(row, col){
         let count = 0;
@@ -170,7 +131,7 @@ function startGame(){
             for(let y = -1; y <= 1; y++){
                 const newRow = row + x;
                 const newCol = col + y;
-                if(newRow >= 0 && newRow < boardSize && newCol >= 0 && newCol < boardSize && mines.includes(newRow + "-" + newCol)){
+                if(newRow >= 0 & newRow < boardSize && newCol >= 0 && newCol < boardSize){
                     const adjacentTile = board[newRow][newCol];
                     if (!adjacentTile.classList.contains("revealed")) {
                         adjacentTile.classList.add("revealed");
@@ -200,24 +161,50 @@ function startGame(){
 
     function checkWin() {
         if (revealedTiles === boardSize * boardSize - mineCount) {
-            alert("You Win!");
+            // alert("You Win!");
+            showResultScreen(true);
             revealAllMines();
         }
     }
+    
+}
+
+function showResultScreen(isWin){
+    const winScreen = document.getElementById("win-screen");
+    const gameOverScreen = document.getElementById("game-over-screen");
+    if (isWin) {
+        winScreen.classList.remove("hide");
+    } 
+    else {;
+        gameOverScreen.classList.remove("hide");
+    }
+
+    const winButton = document.getElementById("play-again-button");
+    winButton.addEventListener("click", () => {
+        winScreen.classList.add("hide");
+        startGame(); 
+    });
+
+    const gameOverButton = document.getElementById("game-over-button");
+    gameOverButton.addEventListener("click", () => {
+        gameOverScreen.classList.add("hide");
+        startGame();
+    });
 
 }
-const startScreen = document.getElementById("start-screen");
-const startBtn = document.getElementById("start-button");
-const resetButton = document.getElementById("exit");
 
-startBtn.addEventListener("click", () =>{
-    console.log("helll yeaaahhhhh");
-    document.querySelector(".overlay-content").classList.add("hide");
-    document.querySelector(".minesweeper").classList.remove("hide");
-    startGame();
-});
+    const startScreen = document.getElementById("start-screen");
+    const startBtn = document.getElementById("start-button");
+    const resetButton = document.getElementById("exit");
 
-resetButton.addEventListener("click", () => {
-    document.querySelector(".overlay-content").classList.remove("hide");
-    document.querySelector(".minesweeper").classList.add("hide");
-});
+    startBtn.addEventListener("click", () =>{
+        // console.log("helll yeaaahhhhh");
+        document.querySelector(".overlay-content").classList.add("hide");
+        document.querySelector(".minesweeper").classList.remove("hide");
+        startGame();
+    });
+
+    resetButton.addEventListener("click", () => {
+        document.querySelector(".overlay-content").classList.remove("hide");
+        document.querySelector(".minesweeper").classList.add("hide");
+    });
