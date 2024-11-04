@@ -172,12 +172,15 @@ function startGame(){
 function showResultScreen(isWin){
     const winScreen = document.getElementById("win-screen");
     const gameOverScreen = document.getElementById("game-over-screen");
-    if (isWin) {
-        winScreen.classList.remove("hide");
-    } 
-    else {;
-        gameOverScreen.classList.remove("hide");
-    }
+
+    //delay before showing the result screen
+    setTimeout(() => {
+        if (isWin) {
+            winScreen.classList.remove("hide"); 
+        } else {
+            gameOverScreen.classList.remove("hide"); 
+        }
+    }, 1000); 
 
     const winButton = document.getElementById("play-again-button");
     winButton.addEventListener("click", () => {
